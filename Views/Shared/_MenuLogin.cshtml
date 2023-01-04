@@ -1,0 +1,24 @@
+﻿@if (Context.User.Identity.IsAuthenticated == false)
+{
+    <a class="nav-link text-dark" asp-controller="Manage" asp-action="LogIn">LogIn</a>
+}
+else
+{
+    <span>Hola @Context.User.Identity.Name </span>
+    <a class="nav-link text-dark" asp-controller="Manage" asp-action="LogOut">Cerrar sesión</a>
+}
+@if (Context.User.IsInRole("ADMIN"))
+{
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminUsuarios">Lista de usuarios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Admin. categoria</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Producto" asp-action="Index">Administrar productos</a>
+        </li>
+    </ul>
+
+}
