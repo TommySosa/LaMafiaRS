@@ -4,6 +4,7 @@
 }
 <div class="row no-gutters">
     <div class="main-container d-flex">
+        @*Inicio del sidebar*@
         <div class="sidebar" id="side_nav">
             <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
                 <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">MF</span><span class="text-white">La Mafia</span></h1>
@@ -20,8 +21,7 @@
                         <span><i class="bi bi-chat"></i> Mensajes</span>
                         <span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
                     </a>
-                </li>
-                
+                </li>       
             </ul>
             <hr class="h-color mx-2">
 
@@ -29,10 +29,12 @@
                 <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-gear text-white"></i> Configuración</a></li>
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" asp-controller="Manage" asp-action="LogOut"> Cerrar sesión</a></li>
             </ul>
-
-
         </div>
+
+        @*Fin del sidebar*@
+
         <div class="content">
+            @*Inicio del header y modeales*@
             <nav class="navbar navbar-expand-md navbar-light bg-light">
                 <div class="container-fluid">
                     <div class="d-flex justify-content-between d-md-none d-block">
@@ -47,9 +49,50 @@
                             <div class="collapse navbar-collapse justify-content-start col" id="navbarSupportedContent">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <button class="btn btn-dark">Crear nuevo post</button>
+                                        <a class="btn btn-dark" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Crear nuevo post</a>
                                     </li>
                                 </ul>
+                                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalToggleLabel">Publicar un posteo solo de texto</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <label>Escribe el cuerpo de tu post(máximo 140 carácteres).</label>
+                                                    <textarea style="height:200px; width:400px;"></textarea>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary">Publicar</button>
+                                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Publicar imagenes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalToggleLabel2">Publicar sólo imágenes</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Agrega las imágenes a publicar(máximo 4 imágenes).</label>
+                                                <input type="file" value="Imagen 1"/>
+                                                <input type="file" value="Imagen 2" />
+                                                <input type="file" value="Imagen 3"/>
+                                                <input type="file" value="Imagen 4" />
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary">Publicar</button>
+                                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Volver</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                     </div>
                     <div class="col-8">
@@ -68,7 +111,11 @@
                     </div>
                 </div>
             </nav>
+
+            @*Fin del header y modales*@
+
             <div class="col-md-9 p-3">
+                @*Inicio del contenido de texto e imagenes*@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del usuario</h5>
@@ -79,6 +126,52 @@
                         <small class="text-muted">04/01/2003</small>
                     </div>
                 </div>
+
+
+                <div class="card mb-3">
+                    <div class="card-body w-60">
+                        <h5 class="card-title">Nombre del usuario</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@@nombre_de_usuario</h6>
+                        <div class="row">
+                            <div class="col-6 p-0">
+                                <!-- Imagen 1 -->
+                                <img src="~/imagenes/img-tomi-1.jpg" class="img-fluid" alt="Imagen 1" width="auto" height="auto" style="border-radius:10px 0px 0px 0px">
+                            </div>
+                            <div class="col-6 p-0">
+                                <!-- Imagen 2 -->
+                                <img src="~/imagenes/img-tomi-2.jpg" class="img-fluid" alt="Imagen 2" width="auto" height="auto" style="border-radius:0px 10px 0px 0px">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 p-0">
+                                <!-- Imagen 3 -->
+                                <img src="~/imagenes/img-tomi-3.jpg" class="img-fluid" alt="Imagen 3" width="196" height="auto" style="border-radius:0px 0px 0px 10px">
+                            </div>
+                            <div class="col-3 p-0">
+                                <!-- Imagen 4 -->
+                                <img src="~/imagenes/img-tomi-4.jpg" class="img-fluid" alt="Imagen 4" width="196" height="auto">
+                            </div>
+                            <div class="col-3 p-0">
+                                <!-- Imagen 4 -->
+                                <img src="~/imagenes/img-tomi-4.jpg" class="img-fluid" alt="Imagen 4" width="196" height="auto">
+                            </div>
+                            <div class="col-3 p-0">
+                                <!-- Imagen 4 -->
+                                <img src="~/imagenes/img-tomi-4.jpg" class="img-fluid" alt="Imagen 4" width="196" height="auto" style="border-radius:0px 0px 10px 0px">
+                            </div>
+                        </div>
+                        <p>Descripcion de prueba holaaaa jajajaj soy bien piolaa</p>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">04/01/2003</small>
+                    </div>
+                </div>
+
+
+
+
+
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del usuario</h5>
@@ -89,16 +182,9 @@
                         <small class="text-muted">04/01/2003</small>
                     </div>
                 </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Nombre del usuario</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">@@nombre_de_usuario</h6>
-                        <p class="card-text">Hola este es un tweet de la Red Social de LA MAFIA de prueba asi que hola como estas</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">04/01/2003</small>
-                    </div>
-                </div>
+                
+                @*Fin del contenido de texto e imágenes*@
+
             </div>
         </div>
     
