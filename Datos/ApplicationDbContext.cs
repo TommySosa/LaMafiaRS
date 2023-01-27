@@ -16,12 +16,13 @@ namespace LaMafiaRS.Datos
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .HasMany(b => b.Tweet)
-                .WithOne(p => p.User)
+            modelBuilder.Entity<Tweet>()
+                .HasOne(p => p.User)
+                .WithMany(u => u.Tweet)
                 .HasForeignKey(p => p.UserId);
         }
         public DbSet<User> User { get; set; }
+        public DbSet<Tweet> Tweet { get; set; }
     }
 
 }

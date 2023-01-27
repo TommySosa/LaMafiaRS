@@ -1,4 +1,5 @@
-﻿@model List<User>
+﻿@*@model List<User>*@
+@model IEnumerable<LaMafiaRS.Models.Tweet>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -49,50 +50,11 @@
                             <div class="collapse navbar-collapse justify-content-start col" id="navbarSupportedContent">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="btn btn-dark" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Crear nuevo post</a>
+                                        @*<a class="btn btn-dark" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Crear nuevo post</a>*@
+                                        <a class="btn btn-dark" asp-controller="Tweet" asp-action="Create">Crear nuevo post</a>
                                     </li>
                                 </ul>
-                                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalToggleLabel">Publicar un posteo solo de texto</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <label>Escribe el cuerpo de tu post(máximo 140 carácteres).</label>
-                                                    <textarea style="height:200px; width:400px;"></textarea>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-primary">Publicar</button>
-                                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Publicar imagenes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalToggleLabel2">Publicar sólo imágenes</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <label>Agrega las imágenes a publicar(máximo 4 imágenes).</label>
-                                                <input type="file" value="Imagen 1"/>
-                                                <input type="file" value="Imagen 2" />
-                                                <input type="file" value="Imagen 3"/>
-                                                <input type="file" value="Imagen 4" />
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-primary">Publicar</button>
-                                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Volver</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                     </div>
                     <div class="col-8">
@@ -116,16 +78,22 @@
 
             <div class="col-md-9 p-3">
                 @*Inicio del contenido de texto e imagenes*@
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Nombre del usuario</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">@@nombre_de_usuario</h6>
-                        <p class="card-text">Hola este es un tweet de la Red Social de LA MAFIA de prueba asi que hola como estas</p>
+                @foreach (var item in Model)
+                {
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Nombre del usuario
+                                <a asp-action="Editar" asp-route-id="@item.TweetId">Editar</a> |
+                                <a asp-action="Eliminar" asp-route-id="@item.TweetId">Eliminar</a>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@@@item.UserId</h6>
+                            <p class="card-text">@item.Text</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">@item.CreationDate</small>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">04/01/2003</small>
-                    </div>
-                </div>
+                }
 
 
                 <div class="card mb-3">

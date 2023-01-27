@@ -1,0 +1,40 @@
+﻿@model IEnumerable<LaMafiaRS.Models.Tweet>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+De tweet
+
+
+
+
+<h1 style="text-align:center;">Catalogo de Productos</h1>
+
+<table class="table table-hover" style="text-align: center;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">@Html.DisplayNameFor(model => model.Text)</th>
+      <th scope="col">@Html.DisplayNameFor(model => model.CreationDate)</th>
+      <th scope="col">@Html.DisplayNameFor(model => model.Imagen1)</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   @foreach (var item in Model)
+   {
+
+    <tr >
+      <th scope="row">
+        <a asp-action="Editar" asp-route-id="@item.TweetId">Editar</a> |
+        <a asp-action="Eliminar" asp-route-id="@item.TweetId">Eliminar</a>
+      </th>
+      <td>@Html.DisplayFor(modelItem => item.Text)</td>
+      <td> <img src="@item.Imagen1" alt="" width="400px" height="400px"></td>
+      <td>S/.@Html.DisplayFor(modelItem => item.User)</td>
+    </tr>
+
+   }
+  </tbody>
+</table>

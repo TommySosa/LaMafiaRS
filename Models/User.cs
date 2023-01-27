@@ -7,24 +7,24 @@ namespace LaMafiaRS.Models
     public class User
     {
         [Key]
-        [Column("User")]
+        //[Column("User")]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int UserId { get; set; }
-        [Column("PASS")]
-        public byte[] Password { get; set; }
-        [Column("EMAIL")]
+        //[Column("PASS")]
+        public byte[] PASS { get; set; }
+        //[Column("EMAIL")]
         public string Email { get; set; }
-        [Column("SALT")]
+        //[Column("SALT")]
         public string Salt { get; set; }
-        [Column("Username")]
+        //[Column("Username")]
         public string Username { get; set; }
-        [Column("Tipo")]
+        //[Column("Tipo")]
         public string Tipo { get; set; }
-        [Column("CreationDate")]
-        public DateTime CreationDate { get; set; }
+        //[Column("CreationDate")]
+        //public DateTime CreationDate { get; set; }
 
-        public List<Tweet> Tweet { get; set; }
-        public List<Like> Like { get; set; }
+        public ICollection<Tweet> Tweet { get; set; }
+
     }
 }

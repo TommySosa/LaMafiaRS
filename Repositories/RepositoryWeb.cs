@@ -1,6 +1,8 @@
 ﻿using LaMafiaRS.Datos;
 using LaMafiaRS.Helper;
 using LaMafiaRS.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Hosting;
 
 namespace LaMafiaRS.Repositories
 {
@@ -10,6 +12,14 @@ namespace LaMafiaRS.Repositories
         public RepositoryWeb(ApplicationDbContext context)
         {
             this.context = context;
+        }
+        public int FindUser(string nombre)
+        {
+            var consulta = from datos in this.context.User
+                           where nombre == datos.Username
+                           select datos.UserId;
+            int id = consulta.FirstOrDefault();
+            return id;
         }
         private int GetMaxIdUsuario()
         {
@@ -55,7 +65,7 @@ namespace LaMafiaRS.Repositories
                 //genera un salt aleatorio para cada usuario
                 usuario.Salt = HelperCryptography.GenerateSalt();
                 //genera su password con el salt
-                usuario.Password = HelperCryptography.EncriptarPassword(password, usuario.Salt);
+                usuario.PASS = HelperCryptography.EncriptarPassword(password, usuario.Salt);
                 this.context.User.Add(usuario);
                 this.context.SaveChanges();
 
@@ -71,7 +81,7 @@ namespace LaMafiaRS.Repositories
             }
             else
             {
-                byte[] passUsuario = usuario.Password;
+                byte[] passUsuario = usuario.PASS;
                 string salt = usuario.Salt;
 
                 byte[] temporal = HelperCryptography.EncriptarPassword(password, salt);
