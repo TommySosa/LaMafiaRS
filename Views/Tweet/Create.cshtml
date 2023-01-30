@@ -40,7 +40,7 @@
 
                 <ul class="list-unstyled px-2">
                     <li><h3>Hola @Context.User.Identity.Name!</h3></li>
-                    <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-house text-white"></i> Inicio</a></li>
+                    <li class="active"><a asp-controller="Home" asp-action="Index" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-house text-white"></i> Inicio</a></li>
                     <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-person text-white"></i> Perfil</a></li>
                     <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-bell text-white"></i> Notificaciones</a></li>
                     <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-calendar-event"></i> Eventos</a></li>
@@ -139,18 +139,12 @@
                         <form asp-controller="Tweet" asp-action="Create">
 
                             <div>
-                                <label asp-for="User" class="control-label"></label>
-                                @*<input asp-for="User" class="form-control" value="@Context.User.Identity.Name" readonly>*@
-                                <input asp-for="User" class="form-control" value="@Context.User.Identity.Name">
-                                <span asp-validation-for="UserId" class="text-danger"></span>
+                                <label asp-for="Username" class="control-label"></label>
+                                <input asp-for="Username" class="form-control" value="@Context.User.Identity.Name" readonly>
+                                @*<input asp-for="Username" class="form-control" rea>*@
+                                <span asp-validation-for="Username" class="text-danger"></span>
                             </div>
-
-                            <div>
-                                <label asp-for="UserId" class="control-label"></label>
-                                <input asp-for="UserId" class="form-control" value="">
-                                <span asp-validation-for="UserId" class="text-danger"></span>
-                            </div>
-
+                            
                             <div>
                                 <label asp-for="CreationDate"></label>
                                 <input asp-for="CreationDate" class="form-control" id="CreationDate" name="CreationDate" value="@DateTime.Now">
@@ -163,12 +157,12 @@
                                 <span asp-validation-for="Text" class="text-danger"></span>
                             </div>
 
-                            <div>
+                            @*<div>
                                 <label asp-for="Imagen1" class="control-label"></label>
                                 <input asp-for="Imagen1" class="form-control">
                                 <span asp-validation-for="Imagen1" class="text-danger"></span>
 
-                            </div>
+                            </div>*@
                             <br>
                             <div style="text-align:center;">
                                 <button type="submit" class="btn btn-primary">Registrar</button>
@@ -186,10 +180,9 @@
 }
 else
 {
-    <div>
+    <div class="d-flex justify-content-center ">
         <h1>Primero debes logearte o registrarte!</h1>
         <a asp-controller="Manage" asp-action="LogIn">Login</a>
-        <a asp-controller="Home" asp-action="Registro">Registrarse</a>
     </div>
 }
 @section Scripts{

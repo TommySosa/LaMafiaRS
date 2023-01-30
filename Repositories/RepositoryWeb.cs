@@ -3,6 +3,7 @@ using LaMafiaRS.Helper;
 using LaMafiaRS.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Hosting;
+using XAct;
 
 namespace LaMafiaRS.Repositories
 {
@@ -17,6 +18,13 @@ namespace LaMafiaRS.Repositories
         {
             var consulta = from datos in this.context.User
                            where nombre == datos.Username
+                           select datos.UserId;
+            int id = consulta.FirstOrDefault();
+            return id;
+        }
+        public int GetCurrentUserId()
+        {
+            var consulta = from datos in this.context.User
                            select datos.UserId;
             int id = consulta.FirstOrDefault();
             return id;

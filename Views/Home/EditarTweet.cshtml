@@ -1,0 +1,35 @@
+﻿@model Tweet
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<form asp-action="GuardarCambios">
+
+    <div class="form-group">
+        @*<label asp-for="Text"></label>
+        <textarea asp-for="Text" class="form-control"></textarea>
+        <span asp-validation-for="Text" class="text-danger"></span>*@
+        <div>
+            <input type="hidden" asp-for="TweetId" />
+            <label asp-for="Username" class="control-label"></label>
+            <input asp-for="Username" class="form-control" value="@Context.User.Identity.Name" readonly>
+            @*<input asp-for="Username" class="form-control" rea>*@
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="CreationDate"></label>
+            <input asp-for="CreationDate" class="form-control" id="CreationDate" name="CreationDate" value="@DateTime.Now">
+            <span asp-validation-for="CreationDate" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Text" class="control-label"></label>
+            @*<input asp-for="Text" class="form-control">*@
+            <textarea asp-for="Text" class="form-control mt-3 mb-3" rows="3" placeholder="¿Qué estás pensando?" id="Text" name="Text"></textarea>
+            <span asp-validation-for="Text" class="text-danger"></span>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+</form>

@@ -30,8 +30,9 @@ namespace LaMafiaRS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TweetId"), 1L, 1);
 
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("CreationDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Imagen1")
                         .HasColumnType("nvarchar(max)");
@@ -52,6 +53,10 @@ namespace LaMafiaRS.Migrations
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Video")
                         .HasColumnType("nvarchar(max)");

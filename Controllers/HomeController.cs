@@ -1,8 +1,11 @@
 ﻿using LaMafiaRS.Datos;
+using LaMafiaRS.Filters;
 using LaMafiaRS.Models;
 using LaMafiaRS.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Diagnostics;
 
 namespace LaMafiaRS.Controllers
@@ -48,65 +51,94 @@ namespace LaMafiaRS.Controllers
             }
             return View();
         }
-        public async Task<IActionResult> Editar(int? id)
+        [AuthorizeUsers(Policy = "ADMINISTRADORES")]
+        public async Task<IActionResult> EditarTweet(int id)
         {
+            //Verificar si el usuario es administrador
+            //if (User.IsInRole("ADMINISTRADORES"))
+            //{
+                //Obtener el tweet a editar de la base de datos
+                var tweet = await _db.Tweet.FindAsync(id);
 
-            if (id == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-
-                var producto = await _db.Tweet.FindAsync(id);
-                if (producto == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    return View(producto);
-                }
-
-            }
-
+                return PartialView("EditarTweet", tweet);
+            //}
+            //else
+            //{
+            //    //Redirigir al usuario si no es administrador
+            //    return RedirectToAction("Index");
+            //}
         }
-
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Editar(int id, [Bind("TweetId,Text,CreationDate")] Tweet objTweet)
+        public async Task<IActionResult> GuardarCambios(Tweet tweet)
         {
+            //Actualizar el tweet en la base de datos
+            _db.Update(tweet);
+            await _db.SaveChangesAsync();
 
-            if (id != objTweet.TweetId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _db.Update(objTweet);
-                    await _db.SaveChangesAsync();
-
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    return NotFound();
-                }
-
-                return RedirectToAction(nameof(Index));
-            }
-
-            return View(objTweet);
-
+            return RedirectToAction("Index");
         }
-        //editar
+
+        //[AuthorizeUsers(Policy = "ADMINISTRADORES")]
+        //public async Task<IActionResult> Editar(int? id)
+        //{
+
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    else
+        //    {
+
+        //        var producto = await _db.Tweet.FindAsync(id);
+        //        if (producto == null)
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            return View(producto);
+        //        }
+
+        //    }
+
+        //}
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+
+        //public async Task<IActionResult> Editar(int id, [Bind("TweetId,Text,CreationDate")] Tweet objTweet)
+        //{
+
+        //    if (id != objTweet.TweetId)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _db.Update(objTweet);
+        //            await _db.SaveChangesAsync();
+
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            return NotFound();
+        //        }
+
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    return View(objTweet);
+
+        //}
+        ////editar
 
 
         //eliminar
+        [AuthorizeUsers(Policy = "ADMINISTRADORES")]
         public IActionResult Eliminar(int? id)
         {
 

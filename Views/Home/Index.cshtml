@@ -14,7 +14,7 @@
 
             <ul class="list-unstyled px-2">
                 <li><h3>Hola @Context.User.Identity.Name!</h3></li>
-                <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-house text-white"></i> Inicio</a></li>
+                <li class="active"><a asp-controller="Home" asp-action="Index" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-house text-white"></i> Inicio</a></li>
                 <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-person text-white"></i> Perfil</a></li>
                 <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-bell text-white"></i> Notificaciones</a></li>
                 <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-calendar-event"></i> Eventos</a></li>
@@ -78,17 +78,56 @@
 
             <div class="col-md-9 p-3">
                 @*Inicio del contenido de texto e imagenes*@
-                @foreach (var item in Model)
+                @foreach (var item in Model.OrderByDescending(t => t.CreationDate))
                 {
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Nombre del usuario
-                                <a asp-action="Editar" asp-route-id="@item.TweetId">Editar</a> |
-                                <a asp-action="Eliminar" asp-route-id="@item.TweetId">Eliminar</a>
+                                @if (User.IsInRole("ADMIN"))
+                                {
+                                    <a class="edit-tweet-link" data-tweet-id="@item.TweetId" @*asp-route-id="@item.TweetId"*@>Editar</a>
+                                    <a onclick="return confirm('¿Estás seguro de que deseas eliminar este tweet?');"  asp-action="Eliminar" asp-route-id="@item.TweetId"> Eliminar </a>
+                                }
+                                
                             </h5>
-                            <h6 class="card-subtitle mb-2 text-muted">@@@item.UserId</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">@@@item.Username</h6>
                             <p class="card-text">@item.Text</p>
+                            <div id="editModal" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Editar tweet</h5>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Aquí se cargará la vista parcial -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="row">
+                                <div class="col-6 p-0">
+                                    <!-- Imagen 1 -->
+                                    <img src="@item.Imagen1" class="img-fluid" alt="Imagen 1" width="auto" height="auto" style="border-radius:10px 0px 0px 0px">
+                                </div>
+                                <div class="col-6 p-0">
+                                    <!-- Imagen 2 -->
+                                    <img src="@item.Imagen1" class="img-fluid" alt="Imagen 2" width="auto" height="auto" style="border-radius:0px 10px 0px 0px">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-0">
+                                    <!-- Imagen 3 -->
+                                    <img src="@item.Imagen1" class="img-fluid" alt="Imagen 3" width="196" height="auto" style="border-radius:0px 0px 0px 10px">
+                                </div>
+                                <div class="col-3 p-0">
+                                    <!-- Imagen 4 -->
+                                    <img src="@item.Imagen1" class="img-fluid" alt="Imagen 4" width="196" height="auto">
+                                </div>
+
+                            </div>*@
                         </div>
+                        
                         <div class="card-footer">
                             <small class="text-muted">@item.CreationDate</small>
                         </div>
@@ -173,7 +212,20 @@
 
         $('.close-btn').on('click', function () {
             $('.sidebar').removeClass('active');
-        })
+        });
+
+        $(document).ready(function () {
+            $(".edit-tweet-link").click(function () {
+                // Obtener el ID del tweet a editar
+                var tweetId = $(this).data("tweet-id");
+
+                // Cargar la vista parcial en el modal
+                $.get("/Home/EditarTweet/" + tweetId, function (data) {
+                    $("#editModal .modal-body").html(data);
+                    $("#editModal").modal("show");
+                });
+            });
+        });
     </script>
 }
 

@@ -39,8 +39,12 @@ namespace LaMafiaRS.Controllers
                 //               where datos.Username == tweet.User.Username
                 //               select datos.UserId;
                 //tweet.UserId = repo.FindUser(tweet.User.Username);
-
-
+                User user = new User();
+                //user.UserId = HttpContext.Session.GetString("UserId");
+                //var userId = HttpContext.Session.GetString("UserId");
+                //var user1 = await _context.User.FindAsync(userId);
+                //user.UserId = repo.GetCurrentUserId();
+                //tweet.UserId = repo.GetCurrentUserId();
                 _context.Add(tweet);
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");
