@@ -537,3 +537,4 @@ F:\Facultad\Proyectos\LaMafiaRS\obj\Debug\net6.0\refint\LaMafiaRS.dll
 F:\Facultad\Proyectos\LaMafiaRS\obj\Debug\net6.0\LaMafiaRS.pdb
 F:\Facultad\Proyectos\LaMafiaRS\obj\Debug\net6.0\LaMafiaRS.genruntimeconfig.cache
 F:\Facultad\Proyectos\LaMafiaRS\obj\Debug\net6.0\ref\LaMafiaRS.dll
+F:\Facultad\Proyectos\LaMafiaRS\bin\Debug\net6.0\libman.json

@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\Facultad\Proyectos\LaMafiaRS
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Chat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Chat/Room.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxSb29tLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Facultad/Proyectos/LaMafiaRS/Views/Home/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

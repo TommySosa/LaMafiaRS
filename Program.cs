@@ -1,3 +1,4 @@
+using LaMafiaRS;
 using LaMafiaRS.Datos;
 using LaMafiaRS.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 //            .AddE<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddSignalR();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddTransient<RepositoryWeb>();
 builder.Services.AddAuthentication(options =>
@@ -55,5 +57,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapHub<ChatHub>("/chat");
 app.Run();
