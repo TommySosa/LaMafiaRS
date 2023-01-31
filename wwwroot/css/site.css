@@ -40,6 +40,12 @@ hr.h-color{
 .sidebar li a{
     color:#fff;
 }
+.circular-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
 
 @media(max-width: 767px){
     #side_nav{

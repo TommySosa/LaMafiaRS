@@ -1,4 +1,7 @@
-﻿@section estilos{
+﻿@{
+    Layout = null;
+}
+
     <style>
        
 
@@ -92,10 +95,11 @@ button:hover{
     transform: scale(.6);
 }
     </style>
-}
+
 
 @if (ViewData["MENSAJE"] != null)
 {
+    
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         @ViewData["MENSAJE"]
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -1,15 +1,19 @@
 using LaMafiaRS.Datos;
 using LaMafiaRS.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
                                 options.UseSqlServer(
                                     builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+//            .AddE<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddTransient<RepositoryWeb>();

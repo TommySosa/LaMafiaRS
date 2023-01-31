@@ -33,7 +33,9 @@ namespace LaMafiaRS.Controllers
                 ClaimsIdentity identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
                 Claim claimUserName = new Claim(ClaimTypes.Name, usuario.Username);
                 Claim claimRole = new Claim(ClaimTypes.Role, usuario.Tipo);
-                Claim claimIdUsuario = new Claim("IdUsuario", usuario.UserId.ToString());
+                //Claim claimIdUsuario = new Claim("IdUsuario", usuario.Id.ToString());
+                Claim claimIdUsuario = new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString());
+
                 Claim claimEmail = new Claim("EmailUsuario", usuario.Email);
 
                 identity.AddClaim(claimUserName);

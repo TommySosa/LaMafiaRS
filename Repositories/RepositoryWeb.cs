@@ -18,14 +18,14 @@ namespace LaMafiaRS.Repositories
         {
             var consulta = from datos in this.context.User
                            where nombre == datos.Username
-                           select datos.UserId;
+                           select datos.Id;
             int id = consulta.FirstOrDefault();
             return id;
         }
         public int GetCurrentUserId()
         {
             var consulta = from datos in this.context.User
-                           select datos.UserId;
+                           select datos.Id;
             int id = consulta.FirstOrDefault();
             return id;
         }
@@ -37,7 +37,7 @@ namespace LaMafiaRS.Repositories
             }
             else
             {
-                return this.context.User.Max(z => z.UserId) + 1;
+                return this.context.User.Max(z => z.Id) + 1;
             }
         }
         private bool ExisteEmail(string email)

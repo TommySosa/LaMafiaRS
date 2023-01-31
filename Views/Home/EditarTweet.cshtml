@@ -11,7 +11,7 @@
         <textarea asp-for="Text" class="form-control"></textarea>
         <span asp-validation-for="Text" class="text-danger"></span>*@
         <div>
-            <input type="hidden" asp-for="TweetId" />
+            <input type="hidden" asp-for="Id" />
             <label asp-for="Username" class="control-label"></label>
             <input asp-for="Username" class="form-control" value="@Context.User.Identity.Name" readonly>
             @*<input asp-for="Username" class="form-control" rea>*@

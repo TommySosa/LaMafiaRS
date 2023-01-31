@@ -24,26 +24,14 @@ namespace LaMafiaRS.Migrations
 
             modelBuilder.Entity("LaMafiaRS.Models.Tweet", b =>
                 {
-                    b.Property<int>("TweetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TweetId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreationDate")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imagen1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imagen2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imagen3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imagen4")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Text")
@@ -51,17 +39,14 @@ namespace LaMafiaRS.Migrations
                         .HasMaxLength(280)
                         .HasColumnType("nvarchar(280)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Video")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TweetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -70,11 +55,11 @@ namespace LaMafiaRS.Migrations
 
             modelBuilder.Entity("LaMafiaRS.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -96,7 +81,7 @@ namespace LaMafiaRS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.ToTable("User");
                 });
@@ -104,15 +89,17 @@ namespace LaMafiaRS.Migrations
             modelBuilder.Entity("LaMafiaRS.Models.Tweet", b =>
                 {
                     b.HasOne("LaMafiaRS.Models.User", "User")
-                        .WithMany("Tweet")
-                        .HasForeignKey("UserId");
+                        .WithMany("Tweets")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("LaMafiaRS.Models.User", b =>
                 {
-                    b.Navigation("Tweet");
+                    b.Navigation("Tweets");
                 });
 #pragma warning restore 612, 618
         }

@@ -78,62 +78,7 @@ namespace LaMafiaRS.Controllers
             return RedirectToAction("Index");
         }
 
-        //[AuthorizeUsers(Policy = "ADMINISTRADORES")]
-        //public async Task<IActionResult> Editar(int? id)
-        //{
-
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    else
-        //    {
-
-        //        var producto = await _db.Tweet.FindAsync(id);
-        //        if (producto == null)
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            return View(producto);
-        //        }
-
-        //    }
-
-        //}
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-
-        //public async Task<IActionResult> Editar(int id, [Bind("TweetId,Text,CreationDate")] Tweet objTweet)
-        //{
-
-        //    if (id != objTweet.TweetId)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _db.Update(objTweet);
-        //            await _db.SaveChangesAsync();
-
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            return NotFound();
-        //        }
-
-        //        return RedirectToAction(nameof(Index));
-        //    }
-
-        //    return View(objTweet);
-
-        //}
+        
         ////editar
 
 
