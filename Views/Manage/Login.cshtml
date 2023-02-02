@@ -13,14 +13,15 @@ body{
     align-items: center;
     min-height:100vh;
     font-family: 'Jost' , sans-serif;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    /*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
+        background: linear-gradient(to bottom, #1C1C1C, #383838, #000000);
 }
 .main{
     width: 350px;
-    height: 500px;
+    height: 600px;
     background: red;
     overflow: hidden;
-    background: url("/imagenes/login-banner.jpg") no-repeat center / cover;
+    background: url("/imagenes/LaMafiaBG.jpg") no-repeat center / cover;
     border-radius: 10px;
     box-shadow: 5px 20px 50px #000;
 }
@@ -61,7 +62,7 @@ button{
     justify-content: center;
     display: block;
     color: #fff;
-    background: #573b8a;
+        background: #000000;
     font-size: 1em;
     font-weight: bold; 
     margin-top: 20px;
@@ -72,7 +73,7 @@ button{
     cursor: pointer;
 }
 button:hover{
-    background: #6d44b8;
+            background: #383838;
 }
 .login{
     height: 460px;
@@ -82,7 +83,7 @@ button:hover{
     transition: .8s ease-in-out;
 }
 .login label{
-    color: #573b8a;
+            color: #1C1C1C;
     transform: scale(.6);
 }
 #chk:checked ~ .login{
@@ -117,15 +118,16 @@ button:hover{
             <input type="text" name="username" placeholder="Nombre de usuario" required=""/>
             <input type="email" name="email" placeholder="Correo electrónico" required=""/>
             <input type="password" name="password" placeholder="Contraseña" required=""/>
-            <div class="p-10 row">
-                <div class="col-6">
-                    
-                    <input class="form-check form-check-inline" type="radio" name="tipo" id="inlineRadio1" value="USUARIO" required="" /><label class="form-check-label text-black" for="inlineRadio1" style="font-size:20px;margin: 0px; padding: 0px;">USUARIO</label>
+            <div class="row">
+                <div class="col">
+                    <input class="form-check form-check-inline" type="radio" name="tipo" id="inlineRadio1" value="USUARIO" required="" checked /><label class="form-check-label text-black" for="inlineRadio1" style="font-size:10px;margin: 0px; padding: 0px;">USUARIO</label>                   
                 </div>
-                <div class="col-6">
-                    
-                    <input class="form-check form-check-inline" type="radio" name="tipo" id="inlineRadio2" value="ADMIN" required=""/> <label class="form-check-label text-black" for="inlineRadio2" style="font-size:20px; margin: 0px; padding: 0px;">ADMIN</label>
+                <div class="col">
+                    <input class="form-check form-check-inline" type="radio" name="tipo" id="inlineRadio2" value="ADMIN" required="" disabled/> <label class="form-check-label text-black" for="inlineRadio2" style="font-size:10px; margin: 0px; padding: 0px;">ADMIN</label>
                 </div>
+                    
+                    
+                
                 
             </div>
             

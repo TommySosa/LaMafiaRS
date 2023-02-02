@@ -14,14 +14,6 @@ namespace LaMafiaRS.Repositories
         {
             this.context = context;
         }
-        public int FindUser(string nombre)
-        {
-            var consulta = from datos in this.context.User
-                           where nombre == datos.Username
-                           select datos.Id;
-            int id = consulta.FirstOrDefault();
-            return id;
-        }
         public int GetCurrentUserId()
         {
             var consulta = from datos in this.context.User

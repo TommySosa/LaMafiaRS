@@ -4,9 +4,11 @@ using LaMafiaRS.Models;
 using LaMafiaRS.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace LaMafiaRS.Controllers
 {
@@ -16,26 +18,35 @@ namespace LaMafiaRS.Controllers
         private RepositoryWeb repo;
         private ApplicationDbContext _db;
         private IWebHostEnvironment _webHostEnvironment;
+        private IHubContext<ChatHub> _hubContext;
 
-
-
-        public HomeController(ILogger<HomeController> logger, RepositoryWeb repo, ApplicationDbContext db, IWebHostEnvironment webHostEnvironment)
+        public HomeController(ILogger<HomeController> logger, RepositoryWeb repo, ApplicationDbContext db, IWebHostEnvironment webHostEnvironment, IHubContext<ChatHub> hubContext)
         {
             _logger = logger;
             this.repo = repo;
             _db = db;
             _webHostEnvironment = webHostEnvironment;
+            _hubContext = hubContext;
         }
 
         public IActionResult Index()
         {
-            var listarTweets = _db.Tweet.ToList();
+            var listarTweets = _db.Tweet
+                .Include(t => t.User)
+                .ToList();
             return View(listarTweets);
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+        public IActionResult UpdateUserCount()
+        {
+            int userCount = ChatHub.UserCount;
+        _hubContext.Clients.All.SendAsync("UserCountUpdated", userCount);
+
+            return Json(new { userCount });
         }
         [HttpPost]
         public IActionResult Registro(string email, string password, string username,DateTime creationdate, string tipo)
@@ -72,6 +83,10 @@ namespace LaMafiaRS.Controllers
         public async Task<IActionResult> GuardarCambios(Tweet tweet)
         {
             //Actualizar el tweet en la base de datos
+            int userId = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            Models.User user = new Models.User();
+            user.Id = userId;
+            tweet.UserId = user.Id;
             _db.Update(tweet);
             await _db.SaveChangesAsync();
 

@@ -1,0 +1,33 @@
+﻿@model ICollection<LaMafiaRS.Models.Tweet>
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<h1>Perfil</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto text-center">
+            <img src="~/imagenes/default.png" class="rounded-circle mb-3" alt="Profile Picture">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto text-center">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group m-3">
+                    <label for="profilePictureInput">Cambiar foto de perfil</label>
+                    <input type="file" class="form-control-file" name="ProfilePicture">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Actualizar foto de perfil"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@*<form method="post" enctype="multipart/form-data">
+    <input type="file" name="profilePicture" />
+    <input type="submit" value="Submit" />
+</form>*@
+
+

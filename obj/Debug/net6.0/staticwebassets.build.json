@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "95ukw9ooTHK/FcUR01/twCSry6XV/OO1Mxk+srQS4Y8=",
+  "Hash": "Puo7rN5a1tJ4+8I/li7HcvozzS/0tXKVmO5k2Hm5nyA=",
   "Source": "LaMafiaRS",
   "BasePath": "_content/LaMafiaRS",
   "Mode": "Default",
@@ -35921,6 +35921,23 @@
       "OriginalItemSpec": "wwwroot\\Fontawesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Identity": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\imagenes\\default.png",
+      "SourceId": "LaMafiaRS",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\",
+      "BasePath": "_content/LaMafiaRS",
+      "RelativePath": "imagenes/default.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\default.png"
+    },
+    {
       "Identity": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\imagenes\\img-tomi-1.jpg",
       "SourceId": "LaMafiaRS",
       "SourceType": "Discovered",
@@ -35987,6 +36004,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\img-tomi-4.jpg"
+    },
+    {
+      "Identity": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\imagenes\\LaMafiaBG.jpg",
+      "SourceId": "LaMafiaRS",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\",
+      "BasePath": "_content/LaMafiaRS",
+      "RelativePath": "imagenes/LaMafiaBG.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\LaMafiaBG.jpg"
     },
     {
       "Identity": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\imagenes\\login-banner.jpg",
@@ -40339,6 +40373,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\microsoft\\signalr\\src\\XhrHttpClient.ts"
+    },
+    {
+      "Identity": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\ProfilePictures\\logoTS.jpg",
+      "SourceId": "LaMafiaRS",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\",
+      "BasePath": "_content/LaMafiaRS",
+      "RelativePath": "ProfilePictures/logoTS.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfilePictures\\logoTS.jpg"
+    },
+    {
+      "Identity": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\ProfilePictures\\logoTS-sinfondo.png",
+      "SourceId": "LaMafiaRS",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\",
+      "BasePath": "_content/LaMafiaRS",
+      "RelativePath": "ProfilePictures/logoTS-sinfondo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfilePictures\\logoTS-sinfondo.png"
+    },
+    {
+      "Identity": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\ProfilePictures\\perfil.jpg",
+      "SourceId": "LaMafiaRS",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\",
+      "BasePath": "_content/LaMafiaRS",
+      "RelativePath": "ProfilePictures/perfil.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfilePictures\\perfil.jpg"
     }
   ]
 }

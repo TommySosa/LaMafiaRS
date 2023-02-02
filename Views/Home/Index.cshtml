@@ -10,15 +10,16 @@
             <div class="row">
 
                 <div class="col-2 mb-2">
-                    <img src="/imagenes/img-tomi-1.jpg" class="circular-image">
+                    <img src="@item.User.ProfilePictureUrl" class="circular-image">
                 </div>
 
                 <div class="col-4">
                     <h5 class="card-title">
-                        Nombre del usuario
+                        @item.Username 
                     </h5>
                 </div>
                 <div class="col-3">
+                    <label class="badge text-dark">@item.User.Tipo</label>
                     @if (User.IsInRole("ADMIN"))
                     {
                         <a class="edit-tweet-link" data-tweet-id="@item.Id">Editar</a>
@@ -26,7 +27,7 @@
                     }
                 </div>
             </div>
-            <h6 class="card-subtitle mb-2 text-muted">@@@item.Username</h6>
+            @*<h6 class="card-subtitle mb-2 text-muted">@@@item.User.Email</h6>*@
             <p class="card-text">@item.Text</p>
             <div id="editModal" class="modal fade">
                 <div class="modal-dialog">

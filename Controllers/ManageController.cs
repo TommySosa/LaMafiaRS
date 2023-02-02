@@ -4,15 +4,24 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using LaMafiaRS.Models;
+using XAct.Library.Settings;
+using LaMafiaRS.Datos;
+using XAct.Users;
 
 namespace LaMafiaRS.Controllers
 {
     public class ManageController : Controller
     {
         private RepositoryWeb repo;
-        public ManageController(RepositoryWeb repo)
+        private ApplicationDbContext _db;
+        public ManageController(RepositoryWeb repo, ApplicationDbContext db)
         {
             this.repo = repo;
+            this._db = db;
+        }
+        public IActionResult Perfil()
+        {
+            return View();
         }
 
         public IActionResult Login()
@@ -20,9 +29,34 @@ namespace LaMafiaRS.Controllers
             return View();
         }
         [HttpPost]
+        public async Task<IActionResult> Perfil(IFormFile profilePicture)
+        {
+            // Get the file path
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ProfilePictures", profilePicture.FileName);
+
+            // Save the file to the server
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await profilePicture.CopyToAsync(stream);
+            }
+
+            // Update the user's profile picture in the database
+            // Update the user's profile picture URL in the database
+            int userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            var user = _db.User.FirstOrDefault(u => u.Id == userId);
+            user.ProfilePictureUrl = "/ProfilePictures/" + profilePicture.FileName;
+            _db.User.Update(user);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
+
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Login(string email, string password)
         {
-            User usuario = this.repo.LogInUsuario(email, password);
+            Models.User usuario = this.repo.LogInUsuario(email, password);
             if (usuario == null)
             {
                 ViewData["MENSAJE"] = "No tienes credenciales correctas";
@@ -51,6 +85,18 @@ namespace LaMafiaRS.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+        }
+        [HttpPost]
+        public IActionResult Search(string buscar)
+        {
+            var products = from users in _db.User select users;
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                products = products.Where(s => s.Username!.Contains(buscar));
+            }
+
+            return View("SearchResults", products.ToList());
         }
 
         public IActionResult ErrorAcceso()

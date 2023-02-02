@@ -1,0 +1,51 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Buscar ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @foreach (var user in Model)
+    {
+        <div class="row p-2 d-flex justify-content-center" style="border:solid 1px black">
+            <div class="col-md-2">
+                    <img src="/imagenes/img-tomi-1.jpg" class="circular-image">
+            </div>
+            <div class="col-md-3">
+                <h5 class="">@Html.DisplayFor(modelItem => user.Username)</h5>
+                <a href="#">Ir al perfil </a>
+                @*<h4 class="card-text pt-2 text-center">@Html.DisplayFor(modelItem => user.Tweets)</h4>*@
+            </div>
+        </div>
+    }
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.open-btn').on('click', function () {
+            $('.sidebar').addClass('active');
+        });
+
+        $('.close-btn').on('click', function () {
+            $('.sidebar').removeClass('active');
+        });
+
+        $(document).ready(function () {
+            $(".edit-tweet-link").click(function () {
+                // Obtener el ID del tweet a editar
+                var tweetId = $(this).data("tweet-id");
+
+                // Cargar la vista parcial en el modal
+                $.get("/Home/EditarTweet/" + tweetId, function (data) {
+                    $("#editModal .modal-body").html(data);
+                    $("#editModal").modal("show");
+                });
+            });
+        });
+    </script>
+}
+

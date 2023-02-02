@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="Datos\" />
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\ProfilePictures\" />
   </ItemGroup>
 
 </Project>

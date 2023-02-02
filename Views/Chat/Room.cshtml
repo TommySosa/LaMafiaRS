@@ -1,43 +1,57 @@
-﻿@model int 
+﻿@model int
 
-<h1>@LaMafiaRS.Controllers.ChatController.Rooms.GetValueOrDefault(Model)</h1>
+@if (User.Identity.IsAuthenticated)
+{
+    <h1>@LaMafiaRS.Controllers.ChatController.Rooms.GetValueOrDefault(Model)</h1>
 
-<div class="row">
-    <div class="col-12">
-        <input type="text" placeholder="Usuario" id="user" value="@Context.User.Identity.Name" readonly/>
-        <input type="text" placeholder="Texto" id="message" />
-        <button id="btnSend">Send</button>
+    <div class="row">
+        <div class="col-12">
+            <input type="text" placeholder="Usuario" id="user" value="@Context.User.Identity.Name" readonly />
+            <input type="text" placeholder="Texto" id="message" />
+            <button id="btnSend" class="btn btn-dark">Enviar</button>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-6">
-        <div id="messages"></div>
+    <div class="row">
+        <div class="col-6">
+            <div id="messages"></div>
+        </div>
+        <div class="col-6">
+            <div id="notifications"></div>
+        </div>
     </div>
-    <div class="col-6">
-        <div id="notifications"></div>
-    </div>
-</div>
 
-<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script> 
+    <div class="text-center text-white m-5 btn btn-dark">
+        <a href="/Home/Index">Volver al inicio</a>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1>Primero debes logearte o registrarte!</h1>
+        <br>
+        <a asp-controller="Manage" asp-action="LogIn" class="text-center">Login</a>
+    </div>
+}
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
 <script>
-
     var connection = new signalR.HubConnectionBuilder().withUrl("/chat").build();
 
-    connection.start().then(()=>{
+    connection.start().then(() => {
         connection.invoke("AddToGroup", "@Model")
-    }).catch((e)=>console.error(e));
+    }).catch((e) => console.error(e));
 
-    document.getElementById("btnSend").addEventListener("click",(event)=>{
+    document.getElementById("btnSend").addEventListener("click", (event) => {
 
         let room = "@Model";
         let user = document.getElementById("user").value;
         let message = document.getElementById("message").value;
 
         connection.invoke("SendMessage", room, user, message)
-            .catch((err)=> console.error(err.toString()));
-                                            
+            .catch((err) => console.error(err.toString()));
+
         document.getElementById("message").value = "";
         document.getElementById("message").focus();
 
@@ -45,16 +59,47 @@
 
     })
 
-    connection.on("ReceiveMessage", (user,message)=>{
+    connection.on("ReceiveMessage", (user, message) => {
         var message = "<div><b>" + user + " dijo: </b> " + message + "</div>";
-        document.getElementById("messages").innerHTML = 
+        document.getElementById("messages").innerHTML =
             message + document.getElementById("messages").innerHTML;
     });
 
-    connection.on("ShowWho", (message)=>{
+    connection.on("ShowWho", (message) => {
         var message = "<div><b>" + message + "</b></div>";
-        document.getElementById("notifications").innerHTML = 
+        document.getElementById("notifications").innerHTML =
             message + document.getElementById("notifications").innerHTML;
     });
 
 </script>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.open-btn').on('click', function () {
+            $('.sidebar').addClass('active');
+        });
+
+        $('.close-btn').on('click', function () {
+            $('.sidebar').removeClass('active');
+        });
+
+        $(document).ready(function () {
+            $(".edit-tweet-link").click(function () {
+                // Obtener el ID del tweet a editar
+                var tweetId = $(this).data("tweet-id");
+
+                // Cargar la vista parcial en el modal
+                $.get("/Home/EditarTweet/" + tweetId, function (data) {
+                    $("#editModal .modal-body").html(data);
+                    $("#editModal").modal("show");
+                });
+            });
+        });
+    </script>
+}

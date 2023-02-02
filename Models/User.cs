@@ -15,9 +15,11 @@ namespace LaMafiaRS.Models
         public byte[] PASS { get; set; }
         public string Email { get; set; }
         public string Salt { get; set; }
-        //[RegularExpression(@"^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$", ErrorMessage = "El nombre de usuario no es válido.")]
+        [RegularExpression(@"^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$", ErrorMessage = "El nombre de usuario no es válido.")]
         public string Username { get; set; }
         public string Tipo { get; set; }
+
+        public string ProfilePictureUrl { get; set; }
 
 
         public virtual ICollection<Tweet> Tweets { get; set; }

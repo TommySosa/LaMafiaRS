@@ -20,11 +20,13 @@
                     <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">MF</span><span class="text-white">La Mafia</span></h1>
                     <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="bi bi-chevron-double-up"></i></button>
                 </div>
-
+                
+                
                 <ul class="list-unstyled px-2">
+                    
                     <li><h3>Hola @Context.User.Identity.Name!</h3></li>
                     <li class="active"><a asp-controller="Home" asp-action="Index" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-house text-white"></i> Inicio</a></li>
-                    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-person text-white"></i> Perfil</a></li>
+                    <li class=""><a asp-controller="Manage" asp-action="Perfil" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-person text-white"></i> Perfil</a></li>
                     <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-bell text-white"></i> Notificaciones</a></li>
                     <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-calendar-event"></i> Eventos</a></li>
                     <li class="">
@@ -47,12 +49,12 @@
             <div class="content">
                 @*Inicio del header y modeales*@
                 <nav class="navbar navbar-expand-md navbar-light bg-light">
-                    <div class="container-fluid">
+                    <div class="container-fluid ">
                         <div class="d-flex justify-content-between d-md-none d-block">
                             <a class="navbar-brand fs-4" href="#">La Mafia</a>
                             <button class="btn px-1 py-0 open-btn"><i class="bi bi-chevron-double-up"></i></button>
                         </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="container d-flex row">
@@ -70,8 +72,8 @@
                             <div class="col-8">
                                 <div class="collapse navbar-collapse justify-content-end col" id="navbarSupportedContent">
                                     <ul class="navbar-nav  mb-2 mb-lg-0">
-                                        <form class="d-flex">
-                                            <input class="form-control me-2" type="search" placeholder="Busca un usuario..." aria-label="Search">
+                                        <form class="d-flex" asp-controller="Manage" asp-action="Search">
+                                            <input class="form-control me-2" type="search" name="Buscar" placeholder="Busca un usuario..." aria-label="Search">
                                             <button class="btn btn-outline-dark" type="submit">Buscar</button>
                                         </form>
                                         <li class="nav-item">
@@ -86,31 +88,79 @@
 
                 @*Fin del header y modales*@
 
-                <div class="col-md-6 p-3">
-                    @*Inicio del contenido de texto e imagenes*@
-                    @RenderBody()
+                <div class="row">
+                    <div class="col-md-7 p-3">
+                        @*Inicio del contenido de texto e imagenes*@
+                        @RenderBody()
 
-                    @*Fin del contenido de texto e imágenes*@
+                        @*Fin del contenido de texto e imágenes*@
+                    
+                    </div>
+                    <div class="col-md-5">
+                        @*<div id="userCountContainer">
+                            Usuarios Conectados: <span id="userCount">0</span>
+                        </div>*@
+                        <div>
+                            Usuarios conectados: <span id="connected-users"></span>
+                        </div>
 
-                </div>
+                    </div>
+                </div>            
             </div>
+            
 
         </div>
     </div>
-@*    <div class="">
-        <main role="main" class="pb-0">
-            @RenderBody()
-        </main>
+    
 
-
-
-    </div>*@
 
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - LaMafiaRS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script>
+        //var connection = new signalR.HubConnectionBuilder().withUrl("/chat").build();
+
+        //connection.on("UserConnected", function (userCount) {
+        //    document.getElementById("userCount").textContent = userCount;
+        //});
+
+        //connection.on("UserDisconnected", function (userCount) {
+        //    document.getElementById("userCount").textContent = userCount;
+        //});
+
+        //connection.start().catch(function (err) {
+        //    return console.error(err.toString());
+        //});
+
+
+        //Otro codigo
+        //var connection = new signalR.HubConnectionBuilder().withUrl("/Chat").build();
+        //var connectedUsers = 0;
+
+        //connection.start()
+        //    .then(function () {
+        //        connection.on("UserConnected", function () {
+        //            connectedUsers++;
+        //            updateConnectedUsers();
+        //        });
+        //        connection.on("UserDisconnected", function () {
+        //            connectedUsers--;
+        //            updateConnectedUsers();
+        //        });
+        //    })
+        //    .catch(function (err) {
+        //        return console.error(err.toString());
+        //    });
+
+        //function updateConnectedUsers() {
+        //    document.getElementById("connected-users").innerHTML = connectedUsers;
+        //}
+
+    </script>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

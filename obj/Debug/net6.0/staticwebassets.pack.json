@@ -8433,6 +8433,18 @@
       "PackagePath": "staticwebassets\\Fontawesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\ProfilePictures\\logoTS-sinfondo.png",
+      "PackagePath": "staticwebassets\\ProfilePictures\\logoTS-sinfondo.png"
+    },
+    {
+      "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\ProfilePictures\\logoTS.jpg",
+      "PackagePath": "staticwebassets\\ProfilePictures\\logoTS.jpg"
+    },
+    {
+      "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\ProfilePictures\\perfil.jpg",
+      "PackagePath": "staticwebassets\\ProfilePictures\\perfil.jpg"
+    },
+    {
       "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
@@ -8443,6 +8455,14 @@
     {
       "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\imagenes\\LaMafiaBG.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\LaMafiaBG.jpg"
+    },
+    {
+      "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\imagenes\\default.png",
+      "PackagePath": "staticwebassets\\imagenes\\default.png"
     },
     {
       "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\imagenes\\img-tomi-1.jpg",
