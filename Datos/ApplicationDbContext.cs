@@ -23,6 +23,7 @@ namespace LaMafiaRS.Datos
         }
         public DbSet<User> User { get; set; }
         public DbSet<Tweet> Tweet { get; set; }
+        public DbSet<Events> Events { get; set; }
     }
 
 }

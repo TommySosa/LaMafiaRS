@@ -1,5 +1,5 @@
 ﻿<div class="row">
-    <div class="col-md-8 offset-2">
+    <div class="col-md-6 offset-2">
         <h2>Salas de chat</h2>
         <ul class="list-group">
             @foreach (var e in LaMafiaRS.Controllers.ChatController.Rooms)
@@ -10,9 +10,7 @@
     </div>
 </div>
 
-<div class="text-center text-white m-5 btn btn-dark">
-    <a href="/Home/Index">Volver al inicio</a>
-</div>
+<a class="text-center text-white m-5 btn btn-dark" href="/Home/Index">Volver al inicio</a>
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

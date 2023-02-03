@@ -1,0 +1,61 @@
+﻿@model ICollection<LaMafiaRS.Models.Events>
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+     <div class="container m-3 d-flex justify-content-center">
+        <div class="card text-center" style="width: 18rem;">
+          <div class="card-header">
+            <h5 class="card-title" style="">@item.Titulo</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Organizado por: <span style="">@item.Autor</span></p>
+        <p class="card-text">Ubicación: <span style="">@item.Ubicacion</span></p>
+            <p class="card-text">Fecha y Hora: <span style="">@item.FechaYHora</span></p>
+            <p class="card-text">Finalización: <span style="color: red;">@item.Finalizacion</span></p>
+          </div>
+        </div>
+    </div>
+    }
+
+}
+else
+{
+    <p>No hay eventos disponibles.</p>
+}
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.open-btn').on('click', function () {
+            $('.sidebar').addClass('active');
+        });
+
+        $('.close-btn').on('click', function () {
+            $('.sidebar').removeClass('active');
+        });
+
+        $(document).ready(function () {
+            $(".edit-tweet-link").click(function () {
+                // Obtener el ID del tweet a editar
+                var tweetId = $(this).data("tweet-id");
+
+                // Cargar la vista parcial en el modal
+                $.get("/Home/EditarTweet/" + tweetId, function (data) {
+                    $("#editModal .modal-body").html(data);
+                    $("#editModal").modal("show");
+                });
+            });
+        });
+    </script>
+}
+

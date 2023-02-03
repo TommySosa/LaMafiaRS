@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing.Drawing2D;
 using System.Security.Claims;
 
 namespace LaMafiaRS.Controllers
@@ -35,6 +36,7 @@ namespace LaMafiaRS.Controllers
                 .Include(t => t.User)
                 .ToList();
             return View(listarTweets);
+
         }
 
         public IActionResult Privacy()

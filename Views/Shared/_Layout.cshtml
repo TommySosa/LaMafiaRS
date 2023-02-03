@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="~/LaMafiaRS.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Fontawesome/css/all.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+
     @RenderSection("estilos", false)
 </head>
 <body>
@@ -28,11 +30,11 @@
                     <li class="active"><a asp-controller="Home" asp-action="Index" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-house text-white"></i> Inicio</a></li>
                     <li class=""><a asp-controller="Manage" asp-action="Perfil" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-person text-white"></i> Perfil</a></li>
                     <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-bell text-white"></i> Notificaciones</a></li>
-                    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-calendar-event"></i> Eventos</a></li>
+                    <li class=""><a asp-controller="Events" asp-action="Index" class="text-decoration-none px-3 py-2 d-block"><i class="bi bi-calendar-event"></i> Eventos</a></li>
                     <li class="">
                         <a href="~/Chat/Index" class="text-decoration-none d-flex justify-content-between px-3 py-2">
                             <span><i class="bi bi-chat"></i> Salas de chats</span>
-                            <span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
+                            <span class="bg-dark rounded-pill text-white py-0 px-2">5</span>
                         </a>
                     </li>
                 </ul>
@@ -64,6 +66,7 @@
                                         <li class="nav-item">
                                             @*<a class="btn btn-dark" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Crear nuevo post</a>*@
                                             <a class="btn btn-dark" asp-controller="Tweet" asp-action="Create">Crear nuevo post</a>
+                                            <a class="btn btn-dark" asp-controller="Events" asp-action="Create">Crear nuevo evento</a>
                                         </li>
                                     </ul>
 
@@ -103,6 +106,11 @@
                         <div>
                             Usuarios conectados: <span id="connected-users"></span>
                         </div>
+                           @* @await Html.PartialAsync("~/Views/Events/Index.cshtml")*@
+                        <div class="container mt-5">
+                            @*@await Html.PartialAsync("~/Views/Events/Index.cshtml")*@
+                            
+                        </div>
 
                     </div>
                 </div>            
@@ -114,9 +122,48 @@
     
 
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - LaMafiaRS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="text-center text-white" style="background-color: #000000;">
+        <div class="container ">
+            <section>
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+                   href="mailto:tomas.facundo.sosa@gmail.com"
+                   role="button"
+                   data-mdb-ripple-color="dark">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+                   href="https://www.instagram.com/tomassosa20/"
+                   role="button"
+                   data-mdb-ripple-color="dark">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+                   href="https://www.linkedin.com/in/tom%C3%A1s-facundo-sosa-b6197b22a/"
+                   role="button"
+                   data-mdb-ripple-color="dark">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+                   href="https://github.com/TommySosa"
+                   role="button"
+                   data-mdb-ripple-color="dark">
+                    <i class="fab fa-github"></i>
+                </a>
+                <div class="">
+                    <h6 class="text-uppercase fw-bold mb-4">Contáctame</h6>
+                    <p><i class="fas fa-home me-3 text-dark"></i> Yerba Buena, Tucumán.</p>
+                    <p>
+                        <i class="fas fa-envelope me-3 text-dark"></i>
+                        tomas.facundo.sosa@gmail.com
+                    </p>
+                    <p><i class="fas fa-phone me-3 text-dark"></i> + 54 381 328 4273</p>
+
+                </div>
+            </section>
+        </div>
+        <div class="text-center text-white p-3" style="background-color: #1C1C1C;">
+            © 2023 Copyright:
+            <a class="text-white" href="https://www.instagram.com/tomassosa20/"> Tomás F. Sosa</a>
         </div>
     </footer>
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>

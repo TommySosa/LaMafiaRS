@@ -1,0 +1,77 @@
+﻿@model LaMafiaRS.Models.Events
+@{
+    ViewData["Title"] = "Create";
+}
+<h1>Crear evento</h1>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="d-flex justify-content-center mt-8 ">
+
+
+        <div class="container col-md-5">
+
+            <form asp-controller="Events" asp-action="Create">
+
+                <div>
+                    <label asp-for="Autor" class="control-label"></label>
+                    <input asp-for="Autor" class="form-control" value="@Context.User.Identity.Name" readonly>
+                    <span asp-validation-for="Autor" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control mt-3 mb-3" id="Titulo" name="Titulo" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="FechaYHora"></label>
+                    <input asp-for="FechaYHora" class="form-control" id="CreationDate" name="FechaYHora" value="@DateTime.Now">
+                    <span asp-validation-for="FechaYHora" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Ubicacion" class="control-label"></label>
+                    <input asp-for="Ubicacion" class="form-control mt-3 mb-3" id="Ubicacion" name="Ubicacion" />
+                    <span asp-validation-for="Ubicacion" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Finalizacion"></label>
+                    <input asp-for="Finalizacion" class="form-control" id="Finalizacion" name="Finalizacion">
+                    <span asp-validation-for="Finalizacion" class="text-danger"></span>
+                </div>
+                <br>
+                <div style="text-align:center;">
+                    <button type="submit" class="btn btn-primary">Crear evento</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1>Primero debes logearte o registrarte!</h1>
+        <br>
+        <a asp-controller="Manage" asp-action="LogIn" class="text-center">Login</a>
+    </div>
+}
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.open-btn').on('click', function () {
+            $('.sidebar').addClass('active');
+        });
+
+        $('.close-btn').on('click', function () {
+            $('.sidebar').removeClass('active');
+        })
+    </script>
+}
+
