@@ -1,4 +1,5 @@
 ﻿using LaMafiaRS.Datos;
+using LaMafiaRS.Filters;
 using LaMafiaRS.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -38,6 +39,17 @@ namespace LaMafiaRS.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return View("Index", evento);
+        }
+        [AuthorizeUsers(Policy = "ADMINISTRADORES")]
+        public IActionResult Eliminar(int? id)
+        {
+
+            var evento = _context.Events.Find(id);
+            _context.Events.Remove(evento);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }

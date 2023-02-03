@@ -26,8 +26,6 @@ namespace LaMafiaRS.Controllers
         }
         public IActionResult Index()
         {
-            //IEnumerable<Tweet> tweets = _context.Tweet.ToList();
-            //return View(tweets);
 
             var listarTweets = _context.Tweet.ToList();
             return View(listarTweets);
@@ -41,12 +39,6 @@ namespace LaMafiaRS.Controllers
         {
             if (ModelState.IsValid)
             {
-                //int currentUserId = Convert.ToInt32(_userManager.GetUserId(User));
-                //var name = ClaimsPrincipal.Current.Identity.Name;
-                //var consulta = from datos in _context.User
-                //               where name == datos.Username
-                //               select datos.Id;
-                //int id = consulta.FirstOrDefault();
 
                 int userId = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 Models.User user = new Models.User();

@@ -7,6 +7,10 @@
 {
     @foreach (var item in Model)
     {
+     @if (User.IsInRole("ADMIN"))
+    {
+        <a onclick="return confirm('¿Estás seguro de que deseas eliminar este tweet?');" asp-action="Eliminar" asp-route-id="@item.Id"> Eliminar </a>
+    }
      <div class="container m-3 d-flex justify-content-center">
         <div class="card text-center" style="width: 18rem;">
           <div class="card-header">

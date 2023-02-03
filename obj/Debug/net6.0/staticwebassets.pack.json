@@ -8433,6 +8433,10 @@
       "PackagePath": "staticwebassets\\Fontawesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\ProfilePictures\\fginicio.png",
+      "PackagePath": "staticwebassets\\ProfilePictures\\fginicio.png"
+    },
+    {
       "Id": "F:\\Facultad\\Proyectos\\LaMafiaRS\\wwwroot\\ProfilePictures\\logoTS-sinfondo.png",
       "PackagePath": "staticwebassets\\ProfilePictures\\logoTS-sinfondo.png"
     },

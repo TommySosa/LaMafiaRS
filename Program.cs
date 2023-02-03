@@ -30,7 +30,6 @@ builder.Services.AddAuthentication(options =>
 });
 //Necesitamos indicar un provedor de almacenamiento para tempdata
 builder.Services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
-
 builder.Services.AddControllersWithViews(options => options.EnableEndpointRouting = false).AddSessionStateTempDataProvider();
 builder.Services.AddAuthorization(options =>
 {
@@ -58,7 +57,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//app.MapHub<ChatHub>("/userHub");
-//app.MapHub<ChatHub>("Home");
 app.MapHub<ChatHub>("/chat");
 app.Run();

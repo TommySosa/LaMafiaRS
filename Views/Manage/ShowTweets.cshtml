@@ -1,0 +1,44 @@
+﻿@model LaMafiaRS.Models.User
+@{
+    ViewData["Title"] = Model.Username;
+}
+<div class="row pb-2">
+    <div class="col-4">
+        <img src="@Model.ProfilePictureUrl" class="circular-image" style="width:100px; height:100px;">
+    </div>
+    <div class="col">
+        <h2>@Model.Username Tweets</h2>
+    </div>
+</div>
+
+
+    @foreach (var item in Model.Tweets)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-2 mb-2">
+                        <img src="@item.User.ProfilePictureUrl" class="circular-image">
+                    </div>
+
+                    <div class="col-4">
+                        <h5 class="card-title">
+                            @item.Username
+                        </h5>
+                    </div>
+                    <div class="col-3">
+                        <label class="badge text-dark">@item.User.Tipo</label>
+                    </div>
+                </div>
+                <p class="card-text">@item.Text</p>
+            </div>
+
+            <div class="card-footer">
+                <small class="text-muted">@item.CreationDate</small>
+            </div>
+        </div>
+    }
+
+
+

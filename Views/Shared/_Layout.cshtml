@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/LaMafiaRS.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Fontawesome/css/all.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-
+    <link rel="icon" href="~/imagenes/Logo.jpg"/>
 
     @RenderSection("estilos", false)
 </head>
@@ -100,15 +100,11 @@
                     
                     </div>
                     <div class="col-md-5">
-                        @*<div id="userCountContainer">
-                            Usuarios Conectados: <span id="userCount">0</span>
-                        </div>*@
                         <div>
                             Usuarios conectados: <span id="connected-users"></span>
                         </div>
                            @* @await Html.PartialAsync("~/Views/Events/Index.cshtml")*@
                         <div class="container mt-5">
-                            @*@await Html.PartialAsync("~/Views/Events/Index.cshtml")*@
                             
                         </div>
 
@@ -168,7 +164,7 @@
     </footer>
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
     <script>
-        //var connection = new signalR.HubConnectionBuilder().withUrl("/chat").build();
+        //var connection = new signalR.HubConnectionBuilder().withUrl("/Home").build();
 
         //connection.on("UserConnected", function (userCount) {
         //    document.getElementById("userCount").textContent = userCount;
@@ -184,7 +180,7 @@
 
 
         //Otro codigo
-        //var connection = new signalR.HubConnectionBuilder().withUrl("/Chat").build();
+        //var connection = new signalR.HubConnectionBuilder().withUrl("/Home").build();
         //var connectedUsers = 0;
 
         //connection.start()

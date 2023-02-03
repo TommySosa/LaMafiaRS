@@ -43,13 +43,6 @@ namespace LaMafiaRS.Controllers
         {
             return View();
         }
-        public IActionResult UpdateUserCount()
-        {
-            int userCount = ChatHub.UserCount;
-        _hubContext.Clients.All.SendAsync("UserCountUpdated", userCount);
-
-            return Json(new { userCount });
-        }
         [HttpPost]
         public IActionResult Registro(string email, string password, string username,DateTime creationdate, string tipo)
         {
@@ -67,19 +60,9 @@ namespace LaMafiaRS.Controllers
         [AuthorizeUsers(Policy = "ADMINISTRADORES")]
         public async Task<IActionResult> EditarTweet(int id)
         {
-            //Verificar si el usuario es administrador
-            //if (User.IsInRole("ADMINISTRADORES"))
-            //{
-                //Obtener el tweet a editar de la base de datos
                 var tweet = await _db.Tweet.FindAsync(id);
 
                 return PartialView("EditarTweet", tweet);
-            //}
-            //else
-            //{
-            //    //Redirigir al usuario si no es administrador
-            //    return RedirectToAction("Index");
-            //}
         }
         [HttpPost]
         public async Task<IActionResult> GuardarCambios(Tweet tweet)

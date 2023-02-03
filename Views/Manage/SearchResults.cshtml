@@ -8,11 +8,12 @@
     {
         <div class="row p-2 d-flex justify-content-center" style="border:solid 1px black">
             <div class="col-md-2">
-                    <img src="/imagenes/img-tomi-1.jpg" class="circular-image">
+                    <img src="@user.ProfilePictureUrl" onerror="this.src='/imagenes/default.png'" class="circular-image">
             </div>
             <div class="col-md-3">
                 <h5 class="">@Html.DisplayFor(modelItem => user.Username)</h5>
-                <a href="#">Ir al perfil </a>
+                <a href="@Url.Action("ShowTweets", "Manage", new { id = user.Id })">Ir al perfil</a>
+
                 @*<h4 class="card-text pt-2 text-center">@Html.DisplayFor(modelItem => user.Tweets)</h4>*@
             </div>
         </div>

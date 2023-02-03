@@ -1,5 +1,7 @@
 ﻿@model int
-
+@{
+    ViewData["Title"] = "Salas de chats";
+}
 @if (User.Identity.IsAuthenticated)
 {
     <h1>@LaMafiaRS.Controllers.ChatController.Rooms.GetValueOrDefault(Model)</h1>

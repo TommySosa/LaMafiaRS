@@ -7,6 +7,7 @@ using LaMafiaRS.Models;
 using XAct.Library.Settings;
 using LaMafiaRS.Datos;
 using XAct.Users;
+using Microsoft.EntityFrameworkCore;
 
 namespace LaMafiaRS.Controllers
 {
@@ -14,6 +15,7 @@ namespace LaMafiaRS.Controllers
     {
         private RepositoryWeb repo;
         private ApplicationDbContext _db;
+
         public ManageController(RepositoryWeb repo, ApplicationDbContext db)
         {
             this.repo = repo;
@@ -27,6 +29,20 @@ namespace LaMafiaRS.Controllers
         public IActionResult Login()
         {
             return View();
+        }
+
+        public IActionResult ShowTweets(int id)
+        {
+            var userProfile = _db.User
+                .Include(u => u.Tweets)
+                .SingleOrDefault(u => u.Id == id);
+
+            if (userProfile == null)
+            {
+                return NotFound();
+            }
+
+            return View(userProfile);
         }
         [HttpPost]
         public async Task<IActionResult> Perfil(IFormFile profilePicture)
@@ -83,6 +99,8 @@ namespace LaMafiaRS.Controllers
                     ExpiresUtc = DateTime.Now.AddMinutes(45)
                 });
 
+               
+
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -106,6 +124,7 @@ namespace LaMafiaRS.Controllers
         }
         public async Task<IActionResult> LogOut()
         {
+           
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
