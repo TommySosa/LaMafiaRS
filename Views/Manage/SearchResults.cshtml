@@ -13,8 +13,6 @@
             <div class="col-md-3">
                 <h5 class="">@Html.DisplayFor(modelItem => user.Username)</h5>
                 <a href="@Url.Action("ShowTweets", "Manage", new { id = user.Id })">Ir al perfil</a>
-
-                @*<h4 class="card-text pt-2 text-center">@Html.DisplayFor(modelItem => user.Tweets)</h4>*@
             </div>
         </div>
     }

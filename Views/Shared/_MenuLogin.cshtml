@@ -1,13 +1,13 @@
 ﻿@if (Context.User.Identity.IsAuthenticated == false)
 {
-    <a class="nav-link text-dark" asp-controller="Manage" asp-action="LogIn">LogIn</a>
+    <a class="nav-link text-white btn btn-dark" asp-controller="Manage" asp-action="LogIn">Iniciar sesión</a>
 }
 
 @if (Context.User.IsInRole("ADMIN"))
 {
 
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminUsuarios">Lista de usuarios</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Manage" asp-action="ListarUsuarios">Lista de usuarios</a>
         </li>
 
 

@@ -21,6 +21,11 @@ namespace LaMafiaRS.Controllers
             this.repo = repo;
             this._db = db;
         }
+        public IActionResult ListarUsuarios()
+        {
+            var usuarios = repo.GetUsuarios();
+            return View(usuarios);
+        }
         public IActionResult Perfil()
         {
             return View();

@@ -46,7 +46,6 @@ namespace LaMafiaRS.Controllers
                 tweet.UserId = user.Id;
 
                 _context.Tweet.Add(tweet);
-                //_context.Add(tweet);
                 
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");

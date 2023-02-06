@@ -56,22 +56,5 @@ else
         <a asp-controller="Manage" asp-action="LogIn" class="text-center">Login</a>
     </div>
 }
-@section Scripts{
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    <script>
-        $(".sidebar ul li").on('click', function () {
-            $(".sidebar ul li.active").removeClass('active');
-            $(this).addClass('active');
-        });
-        $('.open-btn').on('click', function () {
-            $('.sidebar').addClass('active');
-        });
 
-        $('.close-btn').on('click', function () {
-            $('.sidebar').removeClass('active');
-        })
-    </script>
-}
 

@@ -38,11 +38,6 @@ namespace LaMafiaRS.Controllers
             return View(listarTweets);
 
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
         [HttpPost]
         public IActionResult Registro(string email, string password, string username,DateTime creationdate, string tipo)
         {

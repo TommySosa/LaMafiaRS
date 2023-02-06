@@ -16,18 +16,5 @@ namespace LaMafiaRS
             await Clients.Group(room).SendAsync("ShowWho", 
                 $"Alguien se conectó "/*{Context.ConnectionId}*/);
         }
-        public override async Task OnConnectedAsync()
-        {
-            UserCount++;
-            await Clients.All.SendAsync("UserConnected", UserCount);
-            await base.OnConnectedAsync();
-        }
-
-        public override async Task OnDisconnectedAsync(Exception exception)
-        {
-            UserCount--;
-            await Clients.All.SendAsync("UserDisconnected", UserCount);
-            await base.OnDisconnectedAsync(exception);
-        }
     }
 }

@@ -31,35 +31,5 @@ else
 {
     <p>No hay eventos disponibles.</p>
 }
-@section Scripts{
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    <script>
-        $(".sidebar ul li").on('click', function () {
-            $(".sidebar ul li.active").removeClass('active');
-            $(this).addClass('active');
-        });
-        $('.open-btn').on('click', function () {
-            $('.sidebar').addClass('active');
-        });
 
-        $('.close-btn').on('click', function () {
-            $('.sidebar').removeClass('active');
-        });
-
-        $(document).ready(function () {
-            $(".edit-tweet-link").click(function () {
-                // Obtener el ID del tweet a editar
-                var tweetId = $(this).data("tweet-id");
-
-                // Cargar la vista parcial en el modal
-                $.get("/Home/EditarTweet/" + tweetId, function (data) {
-                    $("#editModal .modal-body").html(data);
-                    $("#editModal").modal("show");
-                });
-            });
-        });
-    </script>
-}
 

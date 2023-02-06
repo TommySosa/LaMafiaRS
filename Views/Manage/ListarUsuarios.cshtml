@@ -1,0 +1,28 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "ListarUsuarios";
+}
+
+<h1>ListarUsuarios</h1>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Foto de perfil</th>
+      <th scope="col">Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach (var user in Model)
+        {
+          <tr>
+            <td>@user.Username</td>
+            <td><img src="@user.ProfilePictureUrl" alt="@user.Username" width="50" height="50"></td>
+            <td>@user.Tipo</td>
+          </tr>
+        }
+  </tbody>
+</table>
+
+

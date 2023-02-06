@@ -1,0 +1,109 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = LaMafiaRS
+build_property.RootNamespace = LaMafiaRS
+build_property.ProjectDir = F:\Facultad\Proyectos\LaMafiaRS\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\Facultad\Proyectos\LaMafiaRS
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Chat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Chat/Room.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxSb29tLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Events/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Events/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Home/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Home/EditarTweet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0YXJUd2VldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Home/Registro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Manage/ErrorAcceso.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXEVycm9yQWNjZXNvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Manage/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Manage/Perfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXFBlcmZpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Manage/SearchResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXFNlYXJjaFJlc3VsdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Manage/ShowTweets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXFNob3dUd2VldHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Shared/_MenuLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51TG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Tweet/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHdlZXRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Tweet/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHdlZXRcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Tweet/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHdlZXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Facultad/Proyectos/LaMafiaRS/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-4gj4em6z8x
