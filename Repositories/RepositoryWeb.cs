@@ -47,7 +47,7 @@ namespace LaMafiaRS.Repositories
                 return false;
             }
         }
-        public bool RegistrarUsuario(string email, string password, string username, DateTime creationdate, string tipo)
+        public bool RegistrarUsuario(string email, string password, string username, DateTime creationdate, string tipo, string? foto)
         {
             bool ExisteEmail = this.ExisteEmail(email);
             if (ExisteEmail)
@@ -59,7 +59,15 @@ namespace LaMafiaRS.Repositories
                 int idusuario = this.GetMaxIdUsuario();
                 User usuario = new User();
                 //usuario.UserId = idusuario;
-                usuario.ProfilePictureUrl = "~/imagenes/default.png";
+                //usuario.ProfilePictureUrl = "~/imagenes/default.png";
+                if (foto.IsNullOrEmpty())
+                {
+                    usuario.ProfilePictureUrl = "~/imagenes/default.png";
+                }
+                else
+                {
+                    usuario.ProfilePictureUrl = foto;
+                }
                 usuario.Email = email;
                 usuario.Username = username;
                 usuario.Tipo = tipo;

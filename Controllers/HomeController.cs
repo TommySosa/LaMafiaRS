@@ -39,9 +39,9 @@ namespace LaMafiaRS.Controllers
 
         }
         [HttpPost]
-        public IActionResult Registro(string email, string password, string username,DateTime creationdate, string tipo)
+        public IActionResult Registro(string email, string password, string username,DateTime creationdate, string tipo, string? foto)
         {
-            bool registrado = this.repo.RegistrarUsuario(email, password, username,creationdate, tipo);
+            bool registrado = this.repo.RegistrarUsuario(email, password, username,creationdate, tipo, foto);
             if (registrado)
             {
                 ViewData["MENSAJE"] = "Usuario registrado con éxito!";
