@@ -59,6 +59,7 @@ namespace LaMafiaRS.Repositories
                 int idusuario = this.GetMaxIdUsuario();
                 User usuario = new User();
                 //usuario.UserId = idusuario;
+                usuario.ProfilePictureUrl = "~/imagenes/default.png";
                 usuario.Email = email;
                 usuario.Username = username;
                 usuario.Tipo = tipo;

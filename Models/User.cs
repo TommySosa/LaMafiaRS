@@ -19,7 +19,7 @@ namespace LaMafiaRS.Models
         public string Username { get; set; }
         public string Tipo { get; set; }
 
-        public string ProfilePictureUrl { get; set; }
+        public string? ProfilePictureUrl { get; set; }
 
 
         public virtual ICollection<Tweet> Tweets { get; set; }
